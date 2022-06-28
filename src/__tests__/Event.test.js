@@ -65,4 +65,20 @@ describe('<Event /> component', () => {
         expect(EventWrapper.state("collapsed")).toBe(true);
       });
 
+      test("Render description element", () => {
+        EventWrapper.setState({ 
+          visible: true 
+        });
+        EventWrapper.find(".details-button").simulate("click");
+        expect(EventWrapper.find('.eventDescription')).toBeDefined();
+      });
+
+      test("Hide description element", () => {
+        EventWrapper.setState({ 
+          visible: true 
+        });
+        EventWrapper.find(".details-button").simulate("click");
+        expect(EventWrapper.find(".eventDescription")).toHaveLength(0);
+      });
+
 });
